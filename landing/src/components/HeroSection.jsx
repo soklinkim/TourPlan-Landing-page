@@ -1,6 +1,7 @@
 import { FaArrowRight, FaRobot } from 'react-icons/fa'
-import PlannerCard from './PlannerCard'
 import Reveal from './Reveal'
+import angkorImg from '../assets/img/angkor.jpg'
+import logoMark from '../assets/Tour Plan Official Logo/3.png'
 
 export default function HeroSection({ onGetStarted }) {
   function exploreTrips(e) {
@@ -10,6 +11,8 @@ export default function HeroSection({ onGetStarted }) {
 
   return (
     <section className="lp-hero" id="top">
+      <img className="lp-hero-decor lp-hero-decor-left" src={logoMark} alt="" aria-hidden="true" />
+      <img className="lp-hero-decor lp-hero-decor-right" src={logoMark} alt="" aria-hidden="true" />
       <div className="lp-hero-inner">
         <Reveal className="lp-hero-copy" immediate>
           <span className="lp-hero-badge">
@@ -31,7 +34,9 @@ export default function HeroSection({ onGetStarted }) {
         </Reveal>
 
         <Reveal className="lp-hero-visual" delay={120} immediate>
-          <PlannerCard onGetStarted={onGetStarted} variant="compact" />
+          <div className="lp-hero-image">
+            <img src={angkorImg} alt="Stone doorway framing a green Angkor temple garden" />
+          </div>
         </Reveal>
       </div>
 
@@ -45,6 +50,8 @@ export default function HeroSection({ onGetStarted }) {
           overflow: hidden;
         }
         .lp-hero-inner {
+          position: relative;
+          z-index: 1;
           max-width: 1120px;
           margin: 0 auto;
           padding: 64px 24px 72px;
@@ -52,6 +59,28 @@ export default function HeroSection({ onGetStarted }) {
           grid-template-columns: 1.05fr 0.95fr;
           gap: 48px;
           align-items: center;
+        }
+        .lp-hero-decor {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          z-index: 0;
+          height: 100%;
+          width: auto;
+          opacity: 0.2;
+          pointer-events: none;
+          user-select: none;
+        }
+        .lp-hero-decor-left {
+          left: 0;
+          transform: translateX(-50%);
+        }
+        .lp-hero-decor-right {
+          right: 0;
+          transform: translateX(50%) scaleX(-1);
+        }
+        @media (max-width: 900px) {
+          .lp-hero-decor { display: none; }
         }
         .lp-hero-copy, .lp-hero-visual { min-width: 0; }
         .lp-hero-badge {
@@ -115,6 +144,39 @@ export default function HeroSection({ onGetStarted }) {
           transition: border-color 0.15s ease, background 0.15s ease;
         }
         .lp-btn-ghost:hover { border-color: #2d5a2d; background: #f0f7ee; }
+
+        .lp-hero-image {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 24px 60px rgba(15, 51, 32, 0.16);
+          isolation: isolate;
+        }
+        .lp-hero-image::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background:
+            linear-gradient(160deg, rgba(23, 66, 34, 0.28) 0%, rgba(23, 66, 34, 0) 45%),
+            linear-gradient(0deg, rgba(15, 51, 32, 0.35) 0%, rgba(15, 51, 32, 0) 40%);
+          mix-blend-mode: multiply;
+        }
+        .lp-hero-image::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25), inset 0 0 60px 10px rgba(248, 250, 248, 0.18);
+        }
+        .lp-hero-image img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+          filter: saturate(0.85) brightness(1.02);
+        }
 
         @media (max-width: 900px) {
           .lp-hero-inner {
