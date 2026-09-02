@@ -1,12 +1,34 @@
 import logo from '../assets/logo-white.png'
+import gmailIcon from '../assets/Tour Plan Official Logo/google_mail_gmail_logo.webp'
+import tiktokIcon from '../assets/Tour Plan Official Logo/tiktok-logo-png.webp'
+import linkedinIcon from '../assets/Tour Plan Official Logo/linkedin-logo-png.webp'
 import { MVP_URL } from '../config'
 
-// NOTE: No verified public contact details for TourPlan yet.
-// The values below are clearly-marked placeholders — replace before launch.
 const CONTACT = {
-  email: 'hello@tourplan.example', // TODO: replace with real contact email
+  email: 'tourplancambodia@gmail.com',
   location: 'Phnom Penh, Cambodia',
 }
+
+const SOCIALS = [
+  {
+    label: 'tourplancambodia@gmail.com',
+    href: `mailto:${CONTACT.email}`,
+    icon: gmailIcon,
+    name: 'Gmail',
+  },
+  {
+    label: '@tourplan.ai',
+    href: 'https://www.tiktok.com/@tourplan.ai',
+    icon: tiktokIcon,
+    name: 'TikTok',
+  },
+  {
+    label: 'TourPlan on LinkedIn',
+    href: 'https://www.linkedin.com/company/tour-plan',
+    icon: linkedinIcon,
+    name: 'LinkedIn',
+  },
+]
 
 const COLUMNS = [
   {
@@ -68,10 +90,19 @@ export default function Footer() {
 
           <div className="lp-footer-col">
             <h4>Contact</h4>
-            {/* Placeholder contact details — update before launch */}
-            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            {SOCIALS.map((s) => (
+              <a
+                key={s.name}
+                href={s.href}
+                target={s.href.startsWith('http') ? '_blank' : undefined}
+                rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="lp-footer-social-link"
+              >
+                <img src={s.icon} alt={s.name} />
+                {s.label}
+              </a>
+            ))}
             <span>{CONTACT.location}</span>
-            <span className="lp-footer-note">Contact details are placeholders</span>
           </div>
         </div>
       </div>
@@ -119,7 +150,18 @@ export default function Footer() {
           transition: color 0.15s ease;
         }
         .lp-footer-col a:hover { color: #fff; }
-        .lp-footer-note { font-size: 11px !important; color: rgba(255,255,255,0.4) !important; }
+        .lp-footer-social-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .lp-footer-social-link img {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          object-fit: cover;
+          flex-shrink: 0;
+        }
         .lp-footer-bottom {
           border-top: 1px solid rgba(255, 255, 255, 0.1);
           padding: 20px 24px;
