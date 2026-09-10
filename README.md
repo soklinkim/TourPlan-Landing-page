@@ -19,7 +19,7 @@ Open the printed URL (default `http://localhost:5173`).
 The only thing you may need to change is `src/config.js`:
 
 ```js
-export const MVP_URL = 'https://tour-plan-eownmiw02-tour-plan.vercel.app/'
+export const MVP_URL = 'https://tour-plan-7x3jp1v2r-tour-plan.vercel.app/'
 ```
 
 Every button (Start Planning, Log in, Generate My Trip, the forum & playlist
