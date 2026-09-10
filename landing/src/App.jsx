@@ -4,6 +4,8 @@ import PlannerPrompt from './components/PlannerPrompt'
 import HowItWorks from './components/HowItWorks'
 import ForumHighlights from './components/ForumHighlights'
 import PlaylistHighlights from './components/PlaylistHighlights'
+import TripPackagesSection from './components/TripPackagesSection'
+import LocalBusinessPartnershipSection from './components/LocalBusinessPartnershipSection'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
@@ -22,6 +24,8 @@ export default function App() {
         <HowItWorks />
         <ForumHighlights onGetStarted={goToApp} />
         <PlaylistHighlights onGetStarted={goToApp} />
+        <TripPackagesSection onGetStarted={goToApp} />
+        <LocalBusinessPartnershipSection onGetStarted={goToApp} />
         <FAQ />
         <FinalCTA onGetStarted={goToApp} />
       </main>

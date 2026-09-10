@@ -103,6 +103,69 @@ export const TRIP_PLAYLISTS = [
   },
 ]
 
+// ── Trip packages — curated, ready-made experiences (mock data, UI only) ─────
+export const TRIP_PACKAGES = [
+  {
+    id: 'tp-1',
+    title: 'Daun Penh Full-Day Experience',
+    location: 'Phnom Penh',
+    description:
+      "Explore culture, local food, cafés, and the city's highlights in one curated day.",
+    duration: '1 Day',
+    rating: 4.8,
+    price: 'From $35 / person',
+    cover: IMG.templeCity,
+  },
+  {
+    id: 'tp-2',
+    title: 'Phnom Penh Food & Café Day',
+    location: 'Phnom Penh',
+    description:
+      'A curated day of local flavors, popular cafés, and hidden food spots.',
+    duration: '1 Day',
+    rating: 4.7,
+    price: 'From $28 / person',
+    cover: IMG.food,
+  },
+  {
+    id: 'tp-3',
+    title: 'Weekend Escape',
+    location: 'Cambodia',
+    description:
+      'A relaxed weekend experience combining local attractions, food, and activities.',
+    duration: '2 Days',
+    rating: 4.9,
+    price: 'From $45 / person',
+    cover: IMG.scenic,
+  },
+]
+
+// ── Local business partnership — collage tiles + benefits (mock data, UI only) ─
+export const PARTNER_TILES = [
+  { id: 'pt-1', label: 'Café', cover: IMG.food },
+  { id: 'pt-2', label: 'Restaurant', cover: IMG.market },
+  { id: 'pt-3', label: 'Local Experience', cover: IMG.riverside },
+  { id: 'pt-4', label: 'Activity', cover: IMG.scenic },
+]
+
+export const PARTNER_BENEFITS = [
+  {
+    id: 'pb-1',
+    title: 'Reach More Travelers',
+    body: 'Get discovered by travelers actively planning their next experience.',
+  },
+  {
+    id: 'pb-2',
+    title: 'Be Part of Curated Trips',
+    body: "Your business can become part of TourPlan's recommended experiences and trip packages.",
+  },
+  {
+    id: 'pb-3',
+    title: 'Connect With New Customers',
+    body: 'Turn traveler discovery into real opportunities for your local business.',
+  },
+]
+
 // ── How it works ────────────────────────────────────────────────────────────
 export const STEPS = [
   {
