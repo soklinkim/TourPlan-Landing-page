@@ -1,0 +1,29 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "tp-bounce",
+        "createdAt": "2026-09-19T16:17:04.930Z",
+        "reason": "chat typing-indicator: three dots translateY with ease-in-out (no overshoot cubic-bezier), the standard bouncing-dots convention used by Messenger/Slack/Discord, not tacky elastic/bounce easing"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-09-19T18:27:08.741Z",
+        "reason": "user confirmed: explicitly asked for Pino's welcome bubble to 'appear like a pop up' — a springy overshoot easing is the standard technique for a playful mascot entrance, not bounce/elastic on serious UI chrome"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/pino/pino.css"
+        ],
+        "createdAt": "2026-09-19T18:43:41.753Z",
+        "reason": "border-right+border-bottom on .pg-welcome-cloud::after is the rotated-square speech-bubble-tail technique (documented in the comment above it), not a decorative side-accent stripe on a card"
+      }
+    ]
+  }
+}

@@ -3,7 +3,8 @@ import { PARTNER_TILES, PARTNER_BENEFITS } from './data'
 import Reveal from './Reveal'
 
 // Brand / community-facing partnership pitch for local businesses.
-// Frontend/UI only — the CTAs hand off to the live MVP like the rest of the page.
+// Frontend/UI only — the CTAs hand off to the /app product mockup like the
+// rest of the page.
 export default function LocalBusinessPartnershipSection({ onGetStarted }) {
   return (
     <section className="lp-lb" id="partners">

@@ -3,7 +3,8 @@ import { TRIP_PACKAGES } from './data'
 import Reveal from './Reveal'
 
 // Curated, ready-made trip packages. Frontend/UI only — cards and the
-// "View All" link hand off to the live MVP like every other card on the page.
+// "View All" link hand off to the /app product mockup like every other card
+// on the page.
 export default function TripPackagesSection({ onGetStarted }) {
   return (
     <section className="lp-tp" id="packages">

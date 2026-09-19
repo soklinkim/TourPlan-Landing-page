@@ -1,8 +1,14 @@
 # TourPlan-Landing-page
 
-Standalone marketing landing page for TourPlan. **No backend, no environment
-variables, no database.** Every call-to-action sends the visitor to the live
-TourPlan MVP.
+A Vite + React app with two parts. **No backend, no environment variables, no
+database** — everything is front-end only.
+
+- **Marketing landing page** (`/`) — every call-to-action (Start Planning, Log
+  in, Generate My Trip, forum & playlist cards, trip packages, partnership
+  CTA, final CTA, footer logo) routes into the `/app` product mockup below.
+- **Product mockup** (`/app/*`) — a clickable prototype of the customer-facing
+  TourPlan product: AI Planner, Trip Result, My Trips, Forum, Profile. All
+  data is hand-written fixture data; nothing persists past a page refresh.
 
 ## Run locally
 
@@ -12,22 +18,8 @@ npm install
 npm run dev
 ```
 
-Open the printed URL (default `http://localhost:5173`).
-
-## Configure the MVP link
-
-The only thing you may need to change is `src/config.js`:
-
-```js
-export const MVP_URL = 'https://tour-plan-7x3jp1v2r-tour-plan.vercel.app/'
-```
-
-Every button (Start Planning, Log in, Generate My Trip, the forum & playlist
-cards, the final CTA) navigates here.
-
-> The planner card on the landing page is a **visual preview**. It does not
-> collect input, so nothing needs to be passed to the MVP — clicking through
-> just opens the app.
+Open the printed URL (default `http://localhost:5173`). Try `/app/planner`
+directly to jump straight into the product mockup.
 
 ## Deploy to Vercel
 
@@ -38,7 +30,8 @@ This is a standard Vite + React app.
 3. Set **Root Directory** to `landing`.
 4. Framework preset: **Vite** (auto-detected). Build command `npm run build`,
    output directory `dist`.
-5. Deploy.
+5. Deploy. `landing/vercel.json` already rewrites all paths to `/index.html`
+   so client-side routes like `/app/trips` work on refresh and direct links.
 
 No environment variables are required.
 
@@ -48,16 +41,23 @@ No environment variables are required.
 landing/
   index.html
   src/
-    main.jsx
-    App.jsx              # composes the page, wires CTAs to config.goToApp()
-    config.js            # MVP_URL  ← edit this
+    main.jsx              # react-router routes: "/" (landing) and "/app/*" (mockup)
+    App.jsx                # composes the landing page, wires CTAs to /app/planner
     styles.css
-    components/
+    components/            # landing page sections
       Navbar / HeroSection / PlannerCard / PlannerPrompt / HowItWorks
-      ForumHighlights / PlaylistHighlights / FAQ / FinalCTA / Footer
-      Reveal.jsx          # scroll-in animation + Avatar
-      data.js             # all page copy + the 3 forum / 3 playlist highlights
+      ForumHighlights / PlaylistHighlights / TripPackagesSection
+      LocalBusinessPartnershipSection / FAQ / FinalCTA / Footer
+      Reveal.jsx           # scroll-in animation + Avatar
+      data.js              # all landing page copy
+    app/                    # product mockup ("/app/*")
+      app.css              # design system for the mockup (tp- prefixed classes)
+      mockData.js          # all mockup content: places, trips, forum posts, badges
+      AppShell.jsx         # nav shell (desktop top nav / mobile bottom bar)
+      pages/               # PlannerPage, TripResultPage, MyTripsPage, ForumPage, ProfilePage...
+      components/          # planner/, trip/, trips/, forum/, profile/, shared/
 ```
 
-To edit the highlighted forum posts or trip playlists, change the
-`FORUM_HIGHLIGHTS` / `TRIP_PLAYLISTS` arrays in `src/components/data.js`.
+To edit the landing page's forum/playlist highlights, change the arrays in
+`src/components/data.js`. To edit the product mockup's content (places,
+itineraries, forum posts, badges), change `src/app/mockData.js`.

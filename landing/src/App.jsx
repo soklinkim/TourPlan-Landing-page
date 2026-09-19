@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import PlannerPrompt from './components/PlannerPrompt'
@@ -9,12 +10,14 @@ import LocalBusinessPartnershipSection from './components/LocalBusinessPartnersh
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
-import { goToApp } from './config'
 
 // Public marketing landing page for TourPlan.
-// Standalone — no backend, no auth. Every CTA hands off to the live MVP
-// (see src/config.js).
+// Standalone — no backend, no auth. Every CTA hands off to the /app product
+// mockup (src/app/), not an external MVP deployment.
 export default function App() {
+  const navigate = useNavigate()
+  const goToApp = () => navigate('/app/planner')
+
   return (
     <div className="lp-root">
       <Navbar onGetStarted={goToApp} onLogin={goToApp} />
