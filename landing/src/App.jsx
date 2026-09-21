@@ -24,9 +24,9 @@ export default function App() {
         <HeroSection onGetStarted={goToDemo} />
         <PlannerPrompt onGetStarted={goToDemo} />
         <HowItWorks />
-        <ForumHighlights onGetStarted={goToDemo} />
         <PlaylistHighlights onGetStarted={goToDemo} />
         <TripPackagesSection onGetStarted={goToDemo} />
+        <ForumHighlights onGetStarted={goToDemo} />
         <LocalBusinessPartnershipSection onGetStarted={goToDemo} />
         <FinalCTA onGetStarted={goToDemo} />
         <AboutUs />

@@ -24,7 +24,7 @@ import weekend from '../assets/img/weekend.jpg'
 import phnomPenh from '../assets/img/phnom-penh.jpg'
 import streetFood from '../assets/img/street-food.jpg'
 
-export const DEMO_URL = 'https://tour-plan-7x3jp1v2r-tour-plan.vercel.app/'
+export const DEMO_URL = 'https://tour-plan-mvp-git-tourplan-mvp-tour-plan.vercel.app/'
 
 export const IMG = {
   riverside: beach,

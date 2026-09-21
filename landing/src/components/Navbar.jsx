@@ -5,9 +5,9 @@ import { DEMO_URL } from './data'
 
 const LINKS = [
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Community', href: '#community' },
   { label: 'Trip Playlists', href: '#playlists' },
   { label: 'Packages', href: '#packages' },
+  { label: 'Community', href: '#community' },
   { label: 'About Us', href: '#about' },
 ]
 
