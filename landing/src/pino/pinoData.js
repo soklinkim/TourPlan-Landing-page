@@ -12,6 +12,7 @@ import surprised from '../assets/pino-greeno/expressions/pino-surprised.png'
 import confident from '../assets/pino-greeno/expressions/pino-serious.png'
 import curious from '../assets/pino-greeno/expressions/pino-thinking-2.png'
 import laughing from '../assets/pino-greeno/expressions/pino-laughing.png'
+import { FAQS } from '../components/data'
 
 // Reuses the "happy" (waving) sprite — same pose as pino-greeno.jpg, but a
 // transparent PNG instead of a flat-background JPG, so it doesn't show a
@@ -31,7 +32,47 @@ export const EXPRESSIONS = [
   surprised,
 ]
 
+const FAQ_HELP_TOPICS = [
+  {
+    id: 'faq-what-is-tourplan',
+    match: /what is tourplan|about tourplan/i,
+    question: FAQS[0].q,
+    answer: FAQS[0].a,
+  },
+  {
+    id: 'faq-create-itinerary',
+    match: /how does tourplan create|create my itinerary|generate my itinerary/i,
+    question: FAQS[1].q,
+    answer: FAQS[1].a,
+  },
+  {
+    id: 'faq-account',
+    match: /need an account|account to create|sign.?in|log.?in/i,
+    question: FAQS[2].q,
+    answer: FAQS[2].a,
+  },
+  {
+    id: 'faq-customize',
+    match: /customize my itinerary|customize.*itinerary|refine my plan|edit trip details/i,
+    question: FAQS[3].q,
+    answer: FAQS[3].a,
+  },
+  {
+    id: 'faq-share-trip',
+    match: /can i share my trip|share an itinerary|share my trip/i,
+    question: FAQS[4].q,
+    answer: FAQS[4].a,
+  },
+  {
+    id: 'faq-discover-trips',
+    match: /discover trips|trips created by other|other travelers/i,
+    question: FAQS[5].q,
+    answer: FAQS[5].a,
+  },
+]
+
 export const HELP_TOPICS = [
+  ...FAQ_HELP_TOPICS,
   {
     id: 'prompt-mode',
     match: /prompt mode|prompt|chat|type/i,
@@ -81,7 +122,7 @@ export const HELP_TOPICS = [
 ]
 
 export const FALLBACK_ANSWER =
-  "I'm still learning that one! Try asking about Prompt Mode, Guided Mode, trip packages, or editing a trip."
+  "I'm still learning that one! Try asking one of the questions below, or ask about Prompt Mode, Guided Mode, trip packages, or editing a trip."
 
 // One-time contextual tips, keyed by route. Prefix-matched so /app/trip/:id
 // all share the same tip.
@@ -109,8 +150,12 @@ const SUGGESTIONS_BY_PREFIX = [
   { prefix: '/app/planner', ids: ['prompt-mode', 'guided-mode', 'packages'] },
 ]
 const DEFAULT_SUGGESTIONS = ['prompt-mode', 'guided-mode', 'edit-trip']
+const LANDING_SUGGESTIONS = FAQ_HELP_TOPICS.map((topic) => topic.id)
 
 export function suggestionsFor(pathname) {
+  if (pathname === '/') {
+    return LANDING_SUGGESTIONS.map((id) => HELP_TOPICS.find((t) => t.id === id)).filter(Boolean)
+  }
   const match = SUGGESTIONS_BY_PREFIX.find((s) => pathname.startsWith(s.prefix))
   const ids = match ? match.ids : DEFAULT_SUGGESTIONS
   return ids.map((id) => HELP_TOPICS.find((t) => t.id === id)).filter(Boolean)

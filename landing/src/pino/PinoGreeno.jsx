@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { FaPaperPlane, FaTimes, FaCheck } from 'react-icons/fa'
+import { FaTimes, FaCheck } from 'react-icons/fa'
 import { EXPRESSIONS, WAVING_IMAGE, findAnswer, findContextTip, suggestionsFor } from './pinoData'
 
 const SEEN_KEY = 'tp_pino_seen'
@@ -43,9 +43,8 @@ export default function PinoGreeno() {
   const [chatOpen, setChatOpen] = useState(false)
   const [tip, setTip] = useState(null)
   const [messages, setMessages] = useState([
-    { from: 'pino', text: "Hi, I'm Pino Greeno! Ask me about Prompt Mode, Guided Mode, trip packages, or editing a trip." },
+    { from: 'pino', text: "Hi, I'm Pino Greeno! Choose a TourPlan question below and I'll help you out." },
   ])
-  const [input, setInput] = useState('')
   const [pos, setPos] = useState(null) // {left, top} once dragged; null = default CSS bottom-right
   const threadRef = useRef(null)
   const widgetRef = useRef(null)
@@ -182,10 +181,7 @@ export default function PinoGreeno() {
   }
 
   function ask(text) {
-    const trimmed = text.trim()
-    if (!trimmed) return
-    setMessages((m) => [...m, { from: 'user', text: trimmed }, { from: 'pino', text: findAnswer(trimmed) }])
-    setInput('')
+    setMessages((m) => [...m, { from: 'user', text }, { from: 'pino', text: findAnswer(text) }])
   }
 
   const suggestions = suggestionsFor(location.pathname)
@@ -246,24 +242,6 @@ export default function PinoGreeno() {
                 </button>
               ))}
             </div>
-
-            <form
-              className="pg-panel-input"
-              onSubmit={(e) => {
-                e.preventDefault()
-                ask(input)
-              }}
-            >
-              <input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask me anything about TourPlan..."
-                aria-label="Ask Pino Greeno"
-              />
-              <button type="submit" className="tp-btn-icon" disabled={!input.trim()} aria-label="Send">
-                <FaPaperPlane />
-              </button>
-            </form>
           </div>
         )}
 

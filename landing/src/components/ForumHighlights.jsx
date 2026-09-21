@@ -1,4 +1,4 @@
-import { FaHeart, FaRegComment, FaArrowRight } from 'react-icons/fa'
+import { FaHeart, FaRegComment } from 'react-icons/fa'
 import { FORUM_HIGHLIGHTS, formatDate } from './data'
 import Reveal, { Avatar } from './Reveal'
 
@@ -50,11 +50,6 @@ export default function ForumHighlights({ onGetStarted }) {
           ))}
         </div>
 
-        <Reveal className="lp-forum-cta">
-          <button className="lp-btn-ghost lp-btn-lg" onClick={onGetStarted}>
-            Explore Community <FaArrowRight />
-          </button>
-        </Reveal>
       </div>
 
       <style>{`

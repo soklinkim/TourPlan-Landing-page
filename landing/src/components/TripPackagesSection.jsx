@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt, FaRegClock, FaStar, FaArrowRight } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaRegClock, FaStar } from 'react-icons/fa'
 import { TRIP_PACKAGES } from './data'
 import Reveal from './Reveal'
 
@@ -18,9 +18,6 @@ export default function TripPackagesSection({ onGetStarted }) {
               your trip.
             </p>
           </div>
-          <button className="lp-tp-viewall" onClick={onGetStarted}>
-            View All Packages <FaArrowRight />
-          </button>
         </Reveal>
 
         <div className="lp-tp-grid">
@@ -54,9 +51,6 @@ export default function TripPackagesSection({ onGetStarted }) {
                     <span className="lp-tp-price">{pkg.price}</span>
                   </div>
 
-                  <span className="lp-tp-cta">
-                    View Package <FaArrowRight />
-                  </span>
                 </div>
               </article>
             </Reveal>

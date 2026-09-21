@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import logo from '../assets/logo-dark.png'
+import { DEMO_URL } from './data'
 
 const LINKS = [
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Community', href: '#community' },
   { label: 'Trip Playlists', href: '#playlists' },
   { label: 'Packages', href: '#packages' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'About Us', href: '#about' },
 ]
 
-export default function Navbar({ onGetStarted, onLogin }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -43,12 +44,9 @@ export default function Navbar({ onGetStarted, onLogin }) {
         </nav>
 
         <div className="lp-nav-actions">
-          <button className="lp-btn-ghost" onClick={onLogin}>
-            Log in
-          </button>
-          <button className="lp-btn-primary" onClick={onGetStarted}>
-            Start Planning
-          </button>
+          <a className="lp-btn-primary" href={DEMO_URL}>
+            Go Live
+          </a>
         </div>
 
         <button
@@ -68,12 +66,9 @@ export default function Navbar({ onGetStarted, onLogin }) {
               {l.label}
             </a>
           ))}
-          <button className="lp-btn-ghost" onClick={() => { setMenuOpen(false); onLogin() }}>
-            Log in
-          </button>
-          <button className="lp-btn-primary" onClick={() => { setMenuOpen(false); onGetStarted() }}>
-            Start Planning
-          </button>
+          <a className="lp-btn-primary" href={DEMO_URL} onClick={() => setMenuOpen(false)}>
+            Go Live
+          </a>
         </div>
       )}
 
@@ -184,6 +179,15 @@ export default function Navbar({ onGetStarted, onLogin }) {
           .lp-nav-links, .lp-nav-actions { display: none; }
           .lp-nav-toggle { display: flex; }
           .lp-nav-mobile { display: flex; }
+          .lp-nav-mobile .lp-btn-primary {
+            background: #fff;
+            color: #174222;
+            border: 1px solid #dbe8d9;
+          }
+          .lp-nav-mobile .lp-btn-primary:hover {
+            background: #f0f7ee;
+            border-color: #2d5a2d;
+          }
         }
       `}</style>
     </header>

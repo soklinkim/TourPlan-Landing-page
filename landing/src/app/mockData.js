@@ -6,7 +6,7 @@
 // so components can be swapped over later without changing their props.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import boats from '../assets/img/boats.jpg'
+import beach from '../assets/img/beach_1.webp'
 import foodTable from '../assets/img/food-table.jpg'
 import riceTerraces from '../assets/img/rice-terraces.jpg'
 import templeGarden from '../assets/img/temple-garden.jpg'
@@ -52,7 +52,7 @@ export const PLACES = {
     id: 'pl-riverside',
     name: 'Sisowath Quay Riverside Walk',
     category: 'Riverside',
-    image: boats,
+    image: beach,
     x: 62,
     y: 22,
     atmosphere: ['Breezy', 'Scenic', 'Romantic'],
@@ -375,7 +375,7 @@ export const TRIPS = {
   't-highlights': {
     id: 't-highlights',
     title: 'Phnom Penh Highlights',
-    cover: boats,
+    cover: beach,
     status: 'upcoming',
     startDate: '2026-10-10',
     endDate: '2026-10-12',

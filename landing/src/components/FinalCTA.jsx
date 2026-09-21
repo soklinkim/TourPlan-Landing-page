@@ -11,7 +11,7 @@ export default function FinalCTA({ onGetStarted }) {
           and more time exploring.
         </p>
         <button className="lp-final-btn" onClick={onGetStarted}>
-          Start Planning <FaArrowRight />
+          Go Live <FaArrowRight />
         </button>
       </Reveal>
 

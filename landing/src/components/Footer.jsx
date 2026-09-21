@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
 import logo from '../assets/logo-white.png'
 import gmailIcon from '../assets/Tour Plan Official Logo/google_mail_gmail_logo.webp'
 import tiktokIcon from '../assets/Tour Plan Official Logo/tiktok-logo-png.webp'
 import linkedinIcon from '../assets/Tour Plan Official Logo/linkedin-logo-png.webp'
+import { DEMO_URL } from './data'
 
 const CONTACT = {
   email: 'tourplancambodia@gmail.com',
@@ -49,7 +49,6 @@ const COLUMNS = [
   {
     title: 'Support',
     links: [
-      { label: 'FAQ', href: '#faq' },
       { label: 'Privacy Policy', href: '#' },
       { label: 'Terms of Service', href: '#' },
     ],
@@ -67,9 +66,9 @@ export default function Footer() {
     <footer className="lp-footer">
       <div className="lp-footer-inner">
         <div className="lp-footer-brand">
-          <Link to="/app/planner">
+          <a href={DEMO_URL}>
             <img src={logo} alt="TourPlan" />
-          </Link>
+          </a>
           <p>
             TourPlan is an AI-powered travel planning platform that helps travelers
             discover places, build personalized trips, and share experiences.

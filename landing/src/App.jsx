@@ -1,36 +1,35 @@
-import { useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import AboutUs from './components/AboutUs'
 import PlannerPrompt from './components/PlannerPrompt'
 import HowItWorks from './components/HowItWorks'
 import ForumHighlights from './components/ForumHighlights'
 import PlaylistHighlights from './components/PlaylistHighlights'
 import TripPackagesSection from './components/TripPackagesSection'
 import LocalBusinessPartnershipSection from './components/LocalBusinessPartnershipSection'
-import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
+import { DEMO_URL } from './components/data'
 
 // Public marketing landing page for TourPlan.
 // Standalone — no backend, no auth. Every CTA hands off to the /app product
 // mockup (src/app/), not an external MVP deployment.
 export default function App() {
-  const navigate = useNavigate()
-  const goToApp = () => navigate('/app/planner')
+  const goToDemo = () => window.location.assign(DEMO_URL)
 
   return (
     <div className="lp-root">
-      <Navbar onGetStarted={goToApp} onLogin={goToApp} />
+      <Navbar />
       <main>
-        <HeroSection onGetStarted={goToApp} />
-        <PlannerPrompt onGetStarted={goToApp} />
+        <HeroSection onGetStarted={goToDemo} />
+        <PlannerPrompt onGetStarted={goToDemo} />
         <HowItWorks />
-        <ForumHighlights onGetStarted={goToApp} />
-        <PlaylistHighlights onGetStarted={goToApp} />
-        <TripPackagesSection onGetStarted={goToApp} />
-        <LocalBusinessPartnershipSection onGetStarted={goToApp} />
-        <FAQ />
-        <FinalCTA onGetStarted={goToApp} />
+        <ForumHighlights onGetStarted={goToDemo} />
+        <PlaylistHighlights onGetStarted={goToDemo} />
+        <TripPackagesSection onGetStarted={goToDemo} />
+        <LocalBusinessPartnershipSection onGetStarted={goToDemo} />
+        <FinalCTA onGetStarted={goToDemo} />
+        <AboutUs />
       </main>
       <Footer />
 
