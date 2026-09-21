@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { FaTimes, FaCheck } from 'react-icons/fa'
+import { useLocation } from 'react-router-dom'
+import { FaTimes } from 'react-icons/fa'
 import { EXPRESSIONS, WAVING_IMAGE, findAnswer, findContextTip, suggestionsFor } from './pinoData'
 
 const SEEN_KEY = 'tp_pino_seen'
@@ -36,7 +36,6 @@ function writeSession(key, value) {
 
 export default function PinoGreeno() {
   const location = useLocation()
-  const navigate = useNavigate()
 
   const [expressionIndex, setExpressionIndex] = useState(0)
   const [welcomeOpen, setWelcomeOpen] = useState(false)
@@ -114,16 +113,6 @@ export default function PinoGreeno() {
     writeLocal(SEEN_KEY, '1')
   }
 
-  function startTour() {
-    dismissWelcome()
-    navigate('/app/planner')
-    setChatOpen(true)
-    setMessages((m) => [
-      ...m,
-      { from: 'pino', text: 'Try Prompt Mode below, describe your trip in plain English, or switch to Guided Mode for a form.' },
-    ])
-  }
-
   function toggleChat() {
     setChatOpen((o) => !o)
     setTip(null)
@@ -190,18 +179,10 @@ export default function PinoGreeno() {
     <>
       {welcomeOpen && (
         <div className="pg-welcome-overlay" onClick={dismissWelcome}>
-          <div className="pg-welcome-bubble" onClick={(e) => e.stopPropagation()}>
+          <div className="pg-welcome-bubble">
             <img src={WAVING_IMAGE} alt="Pino Greeno waving hello" className="pg-welcome-bubble-image" />
             <div className="pg-welcome-cloud">
               <p>Hi, I&apos;m Pino Greeno! Want a quick tour of Prompt Mode, Guided Mode, and editing a trip?</p>
-              <div className="pg-welcome-cloud-actions">
-                <button className="pg-icon-btn pg-icon-btn-no" onClick={dismissWelcome} aria-label="No thanks">
-                  <FaTimes />
-                </button>
-                <button className="pg-icon-btn pg-icon-btn-yes" onClick={startTour} aria-label="Yes, show me around">
-                  <FaCheck />
-                </button>
-              </div>
             </div>
           </div>
         </div>

@@ -193,26 +193,7 @@
   transform: rotate(45deg);
   z-index: 1;
 }
-.pg-welcome-cloud p { position: relative; z-index: 2; margin: 0 0 16px; font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--tp-text, #374151); }
-
-.pg-welcome-cloud-actions { position: relative; z-index: 2; display: flex; justify-content: flex-end; gap: 10px; }
-.pg-icon-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: transform 0.1s ease;
-}
-.pg-icon-btn:active { transform: scale(0.92); }
-.pg-icon-btn-yes { background: var(--tp-green, #174222); color: #fff; }
-.pg-icon-btn-yes:hover { background: var(--tp-green-soft, #2d5a2d); }
-.pg-icon-btn-no { background: #f3f4f6; color: var(--tp-text-muted, #6b7280); }
-.pg-icon-btn-no:hover { background: #e5e7eb; color: var(--tp-text, #374151); }
+.pg-welcome-cloud p { position: relative; z-index: 2; margin: 0; font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--tp-text, #374151); }
 
 @media (max-width: 480px) {
   .pg-widget { right: 14px; bottom: 14px; }
