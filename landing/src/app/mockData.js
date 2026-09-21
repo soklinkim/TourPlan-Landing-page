@@ -7,9 +7,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import beach from '../assets/img/beach_1.webp'
-import foodTable from '../assets/img/food-table.jpg'
+import foodTable from '../assets/img/food-table.webp'
 import riceTerraces from '../assets/img/rice-terraces.jpg'
-import templeGarden from '../assets/img/temple-garden.jpg'
+import templeGarden from '../assets/img/temple-garden.webp'
 import restaurant from '../assets/img/restaurant.jpg'
 import templeOrnate from '../assets/img/temple-ornate.jpg'
 import angkor from '../assets/img/angkor.jpg'
