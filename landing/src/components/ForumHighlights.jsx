@@ -17,13 +17,7 @@ export default function ForumHighlights({ onGetStarted }) {
         <div className="lp-forum-grid">
           {FORUM_HIGHLIGHTS.map((post, i) => (
             <Reveal key={post.id} delay={i * 90}>
-              <article
-                className="lp-forum-card"
-                onClick={onGetStarted}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onGetStarted()}
-              >
+              <article className="lp-forum-card">
                 <div className="lp-forum-cover">
                   <img src={post.cover} alt="" loading="lazy" />
                   <span className="lp-forum-cat">{post.category}</span>
@@ -80,7 +74,7 @@ export default function ForumHighlights({ onGetStarted }) {
           border: 1px solid #e6eee3;
           border-radius: 16px;
           overflow: hidden;
-          cursor: pointer;
+          cursor: default;
           text-align: left;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
           height: 100%;

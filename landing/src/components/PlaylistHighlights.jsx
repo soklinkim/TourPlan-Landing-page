@@ -24,13 +24,7 @@ export default function PlaylistHighlights({ onGetStarted }) {
         <div className="lp-pl-grid">
           {TRIP_PLAYLISTS.map((pl, i) => (
             <Reveal key={pl.id} delay={i * 90}>
-              <article
-                className="lp-pl-card"
-                onClick={onGetStarted}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onGetStarted()}
-              >
+              <article className="lp-pl-card">
                 <div className="lp-pl-cover">
                   <img src={pl.cover} alt="" loading="lazy" />
                   <div className="lp-pl-cover-grad" />
@@ -85,7 +79,7 @@ export default function PlaylistHighlights({ onGetStarted }) {
           border: 1px solid #e6eee3;
           border-radius: 16px;
           overflow: hidden;
-          cursor: pointer;
+          cursor: default;
           text-align: left;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }

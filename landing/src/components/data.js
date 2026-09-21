@@ -14,8 +14,15 @@ import beach from '../assets/img/beach_1.webp'
 import foodTable from '../assets/img/food-table.webp'
 import riceTerraces from '../assets/img/rice-terraces.jpg'
 import templeGarden from '../assets/img/temple-garden.webp'
-import restaurant from '../assets/img/restaurant.jpg'
+import restaurant from '../assets/img/eatery.jpg'
 import templeOrnate from '../assets/img/temple-ornate.jpg'
+import cafe from '../assets/img/cafe.jpg'
+import local from '../assets/img/local.jpg'
+import activity from '../assets/img/activity.jfif'
+import dounPenh from '../assets/img/doun-penh.jpg'
+import weekend from '../assets/img/weekend.jpg'
+import phnomPenh from '../assets/img/phnom-penh.jpg'
+import streetFood from '../assets/img/street-food.jpg'
 
 export const DEMO_URL = 'https://tour-plan-7x3jp1v2r-tour-plan.vercel.app/'
 
@@ -26,6 +33,13 @@ export const IMG = {
   market: restaurant,
   food: foodTable,
   scenic: riceTerraces,
+  cafe,
+  local,
+  activity,
+  dounPenh,
+  weekend,
+  phnomPenh,
+  streetFood,
 }
 
 // ── Forum / community highlights — exactly 3 ─────────────────────────────────
@@ -79,7 +93,7 @@ export const TRIP_PLAYLISTS = [
     creator: 'Sopheak',
     tags: ['Culture', 'Food', 'Riverside'],
     saves: 1240,
-    cover: IMG.templeCity,
+    cover: IMG.phnomPenh,
   },
   {
     id: 'pl-2',
@@ -90,11 +104,11 @@ export const TRIP_PLAYLISTS = [
     creator: 'Dara',
     tags: ['Food', 'Street Food', 'Cafés'],
     saves: 980,
-    cover: IMG.food,
+    cover: IMG.streetFood,
   },
   {
     id: 'pl-3',
-    title: 'Riverside & Temples Weekend',
+    title: 'Temples Weekend',
     destination: 'Phnom Penh',
     days: 2,
     places: 8,
@@ -116,7 +130,7 @@ export const TRIP_PACKAGES = [
     duration: '1 Day',
     rating: 4.8,
     price: 'From $35 / person',
-    cover: IMG.templeCity,
+    cover: IMG.dounPenh,
   },
   {
     id: 'tp-2',
@@ -138,16 +152,16 @@ export const TRIP_PACKAGES = [
     duration: '2 Days',
     rating: 4.9,
     price: 'From $45 / person',
-    cover: IMG.scenic,
+    cover: IMG.weekend,
   },
 ]
 
 // ── Local business partnership — collage tiles + benefits (mock data, UI only) ─
 export const PARTNER_TILES = [
-  { id: 'pt-1', label: 'Café', cover: IMG.food },
+  { id: 'pt-1', label: 'Café', cover: IMG.cafe },
   { id: 'pt-2', label: 'Restaurant', cover: IMG.market },
-  { id: 'pt-3', label: 'Local Experience', cover: IMG.riverside },
-  { id: 'pt-4', label: 'Activity', cover: IMG.scenic },
+  { id: 'pt-3', label: 'Local Experience', cover: IMG.local },
+  { id: 'pt-4', label: 'Activity', cover: IMG.activity },
 ]
 
 export const PARTNER_BENEFITS = [

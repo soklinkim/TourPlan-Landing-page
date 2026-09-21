@@ -23,13 +23,7 @@ export default function TripPackagesSection({ onGetStarted }) {
         <div className="lp-tp-grid">
           {TRIP_PACKAGES.map((pkg, i) => (
             <Reveal key={pkg.id} delay={i * 90}>
-              <article
-                className="lp-tp-card"
-                onClick={onGetStarted}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onGetStarted()}
-              >
+              <article className="lp-tp-card">
                 <div className="lp-tp-cover">
                   <img src={pkg.cover} alt="" loading="lazy" />
                   <span className="lp-tp-duration">
@@ -118,7 +112,7 @@ export default function TripPackagesSection({ onGetStarted }) {
           border: 1px solid #e6eee3;
           border-radius: 16px;
           overflow: hidden;
-          cursor: pointer;
+          cursor: default;
           text-align: left;
           transition: transform 0.2s ease, box-shadow 0.2s ease;
           height: 100%;
